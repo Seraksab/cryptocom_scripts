@@ -76,6 +76,10 @@ class ApiV1:
                   "type": "step0"}
         return self.http_get(url, params)
 
+    def symbols(self):
+        url = self.apiurl + "/v1/symbols"
+        return self.http_get(url, {})
+
     def balance(self):
         url = self.apiurl + "/v1/account"
         return self.api_key_post(url, {})
@@ -110,10 +114,13 @@ class ApiV1:
         params['symbol'] = sym
         return self.api_key_post(url, params)
 
-    def get_trades(self, sym):
+    def get_trades(self, sym, start, end):
         url = self.apiurl + "/v1/myTrades"
         params = {}
         params['symbol'] = sym
+        params['startDate'] = start
+        params['endDate'] = end
+        params['pageSize'] = 1000
         return self.api_key_post(url, params)
 
     def cancel_order(self, sym, oid):
