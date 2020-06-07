@@ -1,9 +1,6 @@
 import datetime
 import os
 
-
-export_start = "2019-12-01"
-
 staking_amount = [
     ['2019-12-06', 10000],
     ['2019-12-24', 50000],
