@@ -1,2 +1,4 @@
 .idea
 venv
+exports
+api/__pycache__
