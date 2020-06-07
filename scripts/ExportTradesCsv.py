@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 from api.ApiKey import *
 from api.ApiV1 import ApiV1
@@ -52,7 +53,7 @@ def get_header_csv():
 def trade_to_csv(base_coin, count_coin, trade):
     csv_data = [
         trade["id"],
-        trade["ctime"],
+        time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(trade["ctime"]/1000)),
         trade["side"],
         trade["volume"],
         base_coin,
@@ -63,6 +64,8 @@ def trade_to_csv(base_coin, count_coin, trade):
     ]
     return ','.join(map(str, csv_data))
 
+# print(json_pretty(api.get_trades('ethusdt', export_start, export_end)))
+# exit(0)
 
 name = "../exports/trading_export_" \
        + export_start.split()[0] \
@@ -86,4 +89,3 @@ with open(name, "w+") as file:
             # print(csv_line)
     print("Exported %d trades" % total_trades)
 
-# print(json_pretty(api.get_trades('ethusdt')))
