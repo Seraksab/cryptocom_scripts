@@ -25,6 +25,8 @@ api = ApiV1(API_KEY, API_SECRET)
 export_start = "2019-12-01 00:00:00"
 export_end = "2020-06-01 00:00:00"
 
+# percentage of fee rebate due to CRO staking
+fee_rebate_percentage = 0.4
 
 def json_pretty(string):
     return json.dumps(string, sort_keys=True, indent=2)
@@ -74,7 +76,7 @@ def trade_to_csv(base_coin, count_coin, trade):
         base_coin,
         trade["deal_price"],
         count_coin,
-        trade["fee"],
+        round(float(trade["fee"]) * (1 - fee_rebate_percentage), 8),
         trade["feeCoin"]
     ]
     return ','.join(map(str, csv_data))
