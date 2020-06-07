@@ -1,3 +1,18 @@
+# ------------------------------------------------------------------------
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# ------------------------------------------------------------------------
+
 import json
 import os
 import time
@@ -53,7 +68,7 @@ def get_header_csv():
 def trade_to_csv(base_coin, count_coin, trade):
     csv_data = [
         trade["id"],
-        time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(trade["ctime"]/1000)),
+        time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(trade["ctime"] / 1000)),
         trade["side"],
         trade["volume"],
         base_coin,
@@ -63,6 +78,7 @@ def trade_to_csv(base_coin, count_coin, trade):
         trade["feeCoin"]
     ]
     return ','.join(map(str, csv_data))
+
 
 # print(json_pretty(api.get_trades('ethusdt', export_start, export_end)))
 # exit(0)
@@ -88,4 +104,3 @@ with open(name, "w+") as file:
             file.write(csv_line + "\n")
             # print(csv_line)
     print("Exported %d trades" % total_trades)
-
