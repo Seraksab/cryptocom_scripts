@@ -33,3 +33,19 @@ id,time,side,amount_1,coin_1,amount_2,coin_2,fee_amount,fee_coin
 679151,2020-01-17 10:51:40,SELL,157.958,CRO,7.42,USDT,0.31,CRO
 679155,2020-01-17 10:52:05,SELL,3.38085106,CRO,0.15,USDT,0.00,CRO
 ```
+
+### [GenerateCroStakingCsv.py](scripts/GenerateCroStakingCsv.py)
+
+The Crypto.com Exchange API does not yet have an endpoint to retrieve or export the CRO staking rewards.  
+This script generates a CSV with a daily entry of the gained CRO interest which can then be imported to 
+[CoinTracking](https://cointracking.info?ref=S206519) or any similar site.
+
+Example output:
+
+```
+datetime,coin,amount,comment
+2019-12-06T00:00:00Z,CRO,5.47945205,CRO Staking Interest
+2019-12-07T00:00:00Z,CRO,5.47945205,CRO Staking Interest
+2019-12-08T00:00:00Z,CRO,5.47945205,CRO Staking Interest
+2019-12-09T00:00:00Z,CRO,5.47945205,CRO Staking Interest
+```
