@@ -2,11 +2,8 @@
 
 ![GitHub](https://img.shields.io/github/license/Seraksab/cryptocom_scripts)
 
-This repo contains various scripts for the [Crypto.com](https://crypto.com) exchange that i threw together because at the time there was no 
+This repo contains various scripts for the Crypto.com exchange that i threw together because at the time there was no 
 official way or function to accomplish these tasks.
-
-If you newly sign up to [Crypto.com](https://crypto.com) consider using my referral code 
-[x3f6fr8jus](https://platinum.crypto.com/r/x3f6fr8jus) and we both get $50 USD. 
 
 ## Configuration
 
@@ -20,9 +17,9 @@ API_SECRET = "YOUR_KEY_SECRET"
 
 ### [ExportTradesCsv.py](scripts/ExportTradesCsv.py)
 
-The Crypto.com Exchange API is not yet supported by [CoinTracking](https://cointracking.info?ref=S206519).  
+The Crypto.com Exchange API is not yet supported by CoinTracking.  
 This script exports all trades within a given timeframe as a CSV file which can then be imported to 
-[CoinTracking](https://cointracking.info?ref=S206519) or any similar site.
+CoinTracking or any similar site.
 
 Example output:
 
@@ -38,7 +35,7 @@ id,time,side,amount_1,coin_1,amount_2,coin_2,fee_amount,fee_coin
 
 The Crypto.com Exchange API does not yet have an endpoint to retrieve or export the CRO staking rewards.  
 This script generates a CSV with a daily entry of the gained CRO interest which can then be imported to 
-[CoinTracking](https://cointracking.info?ref=S206519) or any similar site.
+CoinTracking or any similar site.
 
 Example output:
 
